@@ -1,0 +1,184 @@
+{
+  "registrations": [
+    {
+      "id": "1",
+      "category": "Future Innovators",
+      "memberCount": 2,
+      "teamLeader": "John Doe",
+      "teamLeaderBirthDate": "2005-03-12",
+      "teamLeaderEmail": "johndoe@example.com",
+      "teamName": "Alpha Squad"
+    },
+    {
+      "id": "2",
+      "category": "Robomission Senior",
+      "memberCount": 2,
+      "teamLeader": "Jane Smith",
+      "teamLeaderBirthDate": "2003-07-25",
+      "teamLeaderEmail": "janesmith@example.com",
+      "teamName": "Beta Builders"
+    },
+    {
+      "id": "3",
+      "category": "Future Innovators",
+      "memberCount": 3,
+      "teamLeader": "Carlos Martinez",
+      "teamLeaderBirthDate": "2007-11-08",
+      "teamLeaderEmail": "carlosmartinez@example.com",
+      "teamName": "Future Tech"
+    },
+    {
+      "id": "4",
+      "category": "Robosport",
+      "memberCount": 2,
+      "teamLeader": "Emily Brown",
+      "teamLeaderBirthDate": "2006-05-14",
+      "teamLeaderEmail": "emilybrown@example.com",
+      "teamName": "Robo Champs"
+    },
+    {
+      "id": "5",
+      "category": "Future Engineers",
+      "memberCount": 3,
+      "teamLeader": "Ahmed Ali",
+      "teamLeaderBirthDate": "2004-12-21",
+      "teamLeaderEmail": "ahmedali@example.com",
+      "teamName": "Tech Titans"
+    },
+    {
+      "id": "6",
+      "category": "Robomission Elementary",
+      "memberCount": 2,
+      "teamLeader": "Sophia White",
+      "teamLeaderBirthDate": "2008-02-19",
+      "teamLeaderEmail": "sophiawhite@example.com",
+      "teamName": "Robo Rangers"
+    },
+    {
+      "id": "7",
+      "category": "Future Innovators",
+      "memberCount": 3,
+      "teamLeader": "Liam Johnson",
+      "teamLeaderBirthDate": "2005-09-15",
+      "teamLeaderEmail": "liamjohnson@example.com",
+      "teamName": "Innovators United"
+    },
+    {
+      "id": "8",
+      "category": "Robomission Senior",
+      "memberCount": 2,
+      "teamLeader": "Olivia Taylor",
+      "teamLeaderBirthDate": "2003-04-03",
+      "teamLeaderEmail": "oliviataylor@example.com",
+      "teamName": "Mecha Masters"
+    },
+    {
+      "id": "9",
+      "category": "Robosport",
+      "memberCount": 3,
+      "teamLeader": "Noah Wilson",
+      "teamLeaderBirthDate": "2006-08-28",
+      "teamLeaderEmail": "noahwilson@example.com",
+      "teamName": "Circuit Breakers"
+    },
+    {
+      "id": "10",
+      "category": "Future Engineers",
+      "memberCount": 2,
+      "teamLeader": "Isabella Davis",
+      "teamLeaderBirthDate": "2007-01-17",
+      "teamLeaderEmail": "isabelladavis@example.com",
+      "teamName": "Code Commanders"
+    },
+    {
+      "id": "11",
+      "category": "Robomission Junior",
+      "memberCount": 3,
+      "teamLeader": "Mason Lee",
+      "teamLeaderBirthDate": "2005-06-11",
+      "teamLeaderEmail": "masonlee@example.com",
+      "teamName": "Quantum Coders"
+    },
+    {
+      "id": "12",
+      "category": "Robosport",
+      "memberCount": 2,
+      "teamLeader": "Ella Thompson",
+      "teamLeaderBirthDate": "2007-03-22",
+      "teamLeaderEmail": "ellathompson@example.com",
+      "teamName": "Robo Ninjas"
+    },
+    {
+      "id": "13",
+      "category": "Future Innovators",
+      "memberCount": 3,
+      "teamLeader": "Aiden Walker",
+      "teamLeaderBirthDate": "2004-10-30",
+      "teamLeaderEmail": "aidenwalker@example.com",
+      "teamName": "AI Pioneers"
+    },
+    {
+      "id": "14",
+      "category": "Robomission Elementary",
+      "memberCount": 2,
+      "teamLeader": "Chloe Anderson",
+      "teamLeaderBirthDate": "2006-12-05",
+      "teamLeaderEmail": "chloeanderson@example.com",
+      "teamName": "Robo Explorers"
+    },
+    {
+      "id": "15",
+      "category": "Future Engineers",
+      "memberCount": 3,
+      "teamLeader": "Ethan Scott",
+      "teamLeaderBirthDate": "2005-01-09",
+      "teamLeaderEmail": "ethanscott@example.com",
+      "teamName": "Tech Warriors"
+    },
+    {
+      "id": "16",
+      "category": "Robomission Senior",
+      "memberCount": 2,
+      "teamLeader": "Zoe Wright",
+      "teamLeaderBirthDate": "2007-08-18",
+      "teamLeaderEmail": "zoewright@example.com",
+      "teamName": "Smart Coders"
+    },
+    {
+      "id": "17",
+      "category": "Future Innovators",
+      "memberCount": 3,
+      "teamLeader": "Logan Harris",
+      "teamLeaderBirthDate": "2003-11-29",
+      "teamLeaderEmail": "loganharris@example.com",
+      "teamName": "Code Crusaders"
+    },
+    {
+      "id": "18",
+      "category": "Robosport",
+      "memberCount": 2,
+      "teamLeader": "Aria Clark",
+      "teamLeaderBirthDate": "2004-07-24",
+      "teamLeaderEmail": "ariaclark@example.com",
+      "teamName": "NextGen Robotics"
+    },
+    {
+      "id": "19",
+      "category": "Robomission Junior",
+      "memberCount": 3,
+      "teamLeader": "Oliver Martinez",
+      "teamLeaderBirthDate": "2006-09-17",
+      "teamLeaderEmail": "olivermartinez@example.com",
+      "teamName": "RoboThinkers"
+    },
+    {
+      "id": "20",
+      "category": "Future Engineers",
+      "memberCount": 2,
+      "teamLeader": "Lily Walker",
+      "teamLeaderBirthDate": "2005-04-06",
+      "teamLeaderEmail": "lilywalker@example.com",
+      "teamName": "Tech Pioneers"
+    }
+  ]
+}
