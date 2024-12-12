@@ -1,5 +1,5 @@
 export interface Registration{
-    id:string | null,
+    id:number | undefined,
     category:string,
     memberCount:number,
     teamLeader:string,

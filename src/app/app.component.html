@@ -16,8 +16,8 @@
       @for (reg of registrations; track $index) {
           <tr>
               <td>
-                  <span>&#9998;</span>
-                  <span>&#10008;</span>
+                  <span (click)="updateReg(reg)">&#9998;</span>
+                  <span (click)="deleteReg(reg)">&#10008;</span>
                 </td>
                 <td>{{reg.teamName}}</td>
                 <td>{{reg.category}}</td>
@@ -30,4 +30,4 @@
     </tbody>
     </table>
 </div>
-
+<app-team [teamData]="newTeam == undefined ? update : newTeam" (saved)="save($event)" (cancelled)="newTeam = undefined; update = undefined;"></app-team>
