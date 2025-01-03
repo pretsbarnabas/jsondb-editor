@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   newTeam: Registration | undefined = undefined
   update: any
   constructor(private dataService: DataService){
-    this.newReg()    
+    // this.newReg()    
   }
   
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit{
   }
 
   updateReg(registration: Registration) {
-    this.update = JSON.parse(JSON.stringify(registration));
+    this.update = {...registration};
   }
 
   deleteReg(registration: Registration) {
@@ -78,5 +78,11 @@ export class AppComponent implements OnInit{
         error: error => console.log(error)
       })
     } 
+  }
+
+  cancel(){
+    this.newTeam = undefined
+    this.update = undefined
+    console.log("cancelled")
   }
 }

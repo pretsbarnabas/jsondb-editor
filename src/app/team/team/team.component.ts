@@ -25,4 +25,18 @@ export class TeamComponent {
   cancel(){
     this.cancelled.emit()
   }
+
+  ngAfterViewInit(): void {
+    const modalElement = document.getElementById('exampleModal');
+    
+    if (modalElement) {
+      modalElement.addEventListener('hidden.bs.modal', () => {
+        this.onModalDismissed();
+      });
+    }
+  }
+
+  onModalDismissed() {
+    this.cancelled.emit()
+  }
 }

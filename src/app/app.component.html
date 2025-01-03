@@ -4,7 +4,7 @@
     <tbody>
       <tr class="text-center">
           <th>
-              <span data-bs-toggle="modal" data-bs-target="#exampleModal">&#10010;</span>
+              <span data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="newReg()">&#10010;</span>
           </th>
           <th>Csapatnév</th>
           <th>Kategória</th>
@@ -16,7 +16,7 @@
       @for (reg of registrations; track $index) {
           <tr>
               <td>
-                  <span (click)="updateReg(reg)">&#9998;</span>
+                  <span (click)="updateReg(reg)" data-bs-toggle="modal" data-bs-target="#exampleModal">&#9998;</span>
                   <span (click)="deleteReg(reg)">&#10008;</span>
                 </td>
                 <td>{{reg.teamName}}</td>
@@ -30,4 +30,4 @@
     </tbody>
     </table>
 </div>
-<app-team [teamData]="newTeam == undefined ? update : newTeam" (saved)="save($event)" (cancelled)="newTeam = undefined; update = undefined;"></app-team>
+<app-team [teamData]="newTeam === undefined ? this.update : newTeam" (saved)="save($event)" (cancelled)="cancel()"></app-team>
