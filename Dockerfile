@@ -5,4 +5,4 @@ RUN npm install
 RUN npm run build
 
 FROM httpd:2.4
-COPY --from=node /app/dist/library-inventory/browser /usr/local/apache2/htdocs
+COPY --from=node /app/dist/jsondb-editor/browser /usr/local/apache2/htdocs
