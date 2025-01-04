@@ -25,5 +25,5 @@ jobs:
         docker build . --file Dockerfile --tag ghcr.io/pretsbarnabas/jsondb-editor:$IMAGE_TAG --tag ghcr.io/pretsbarnabas/jsondb-editor:latest
         docker login ghcr.io --username pretsbarnabas --password ${{secrets.GHCR_TOKEN}}
         docker push ghcr.io/pretsbarnabas/jsondb-editor:$IMAGE_TAG
-        docker push ghcr.iO/pretsbarnabas/jsondb-editor:latest
+        docker push ghcr.io/pretsbarnabas/jsondb-editor:latest
         
