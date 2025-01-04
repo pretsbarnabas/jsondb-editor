@@ -1,17 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-team',
+  selector: 'app-newdata',
   standalone: true,
   imports: [],
-  templateUrl: './team.component.html',
-  styleUrl: './team.component.css'
+  templateUrl: './newdata.component.html',
+  styleUrl: './newdata.component.css'
 })
 
-export class TeamComponent {
+export class NewDataComponent {
   @Input() keys: string[] = []
-  @Input() teamData: Record<string,string|number|Date|boolean> | undefined = undefined
-  @Output() saved = new EventEmitter<Record<string,string|number|Date|boolean>>()
+  @Input() newData: Record<string,string|number|boolean|undefined> | undefined = undefined
+  @Output() saved = new EventEmitter<Record<string,string|number|boolean|undefined>>()
   @Output() cancelled = new EventEmitter<void>()
 
   getValue(event:any){
@@ -19,7 +19,7 @@ export class TeamComponent {
   }
 
   save(){
-    this.saved.emit(this.teamData)
+    this.saved.emit(this.newData)
   }
 
   cancel(){
@@ -36,24 +36,32 @@ export class TeamComponent {
     }
   }
 
+
+  handleValueChange(property: string,event: Event){
+    let newValue = this.getValue(event)
+    if (newValue === "true") newValue = true
+    if (newValue === "false") newValue = false
+    if(!isNaN(newValue as number)) newValue = Number.parseInt(newValue)
+    this.newData![property] = newValue
+  }
+
   onModalDismissed() {
     this.cancelled.emit()
   }
 
   isNumber(property: string): boolean {
-    const value = this.teamData?.[property]
+    const value = this.newData?.[property]
     if(value === "" || this.isBoolean(value)) return false
     return !isNaN(value as number);
   }
   
   isBoolean(property:any): boolean{
-    const value = this.teamData?.[property];
-    console.log(value);
+    const value = this.newData?.[property];
     return value === "true" || value === "false" || value === true || value === false;
   }
 
   isString(property: string): boolean {
-    return typeof this.teamData?.[property] === 'string';
+    return typeof this.newData?.[property] === 'string';
   }
 
   isValidDate(dateString: any): boolean {

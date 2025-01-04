@@ -7,25 +7,25 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class DataService {
 
-  url = "http://localhost:3000/registrations"
+  url = "http://localhost:3000/pets"
 
   constructor(private http:HttpClient) {
     
    }
 
-  getRegistrations(): Observable<Record<string,string|number|Date|boolean>[]>{
-    return this.http.get<Record<string,string|number|Date|boolean>[]>(this.url)
+  getRegistrations(): Observable<Record<string,string|number|boolean|undefined>[]>{
+    return this.http.get<Record<string,string|number|boolean|undefined>[]>(this.url)
    }
 
-  addRegistration(registration: Record<string,string|number|Date|boolean>): Observable<Record<string,string|number|Date|boolean>>{
-    return this.http.post<Record<string,string|number|Date|boolean>>(this.url,registration)
+  addRegistration(registration: Record<string,string|number|boolean|undefined>): Observable<Record<string,string|number|boolean|undefined>>{
+    return this.http.post<Record<string,string|number|boolean|undefined>>(this.url,registration)
    }
    
-  updateRegistration(registration: Record<string,string|number|Date|boolean>): Observable<Record<string,string|number|Date|boolean>>{
-    return this.http.patch<Record<string,string|number|Date|boolean>>(`${this.url}/${registration["id"]}`,registration)
+  updateRegistration(registration: Record<string,string|number|boolean|undefined>): Observable<Record<string,string|number|boolean|undefined>>{
+    return this.http.patch<Record<string,string|number|boolean|undefined>>(`${this.url}/${registration["id"]}`,registration)
    }
 
-  deleteRegistration(id: number): Observable<Record<string,string|number|Date|boolean>>{
-    return this.http.delete<Record<string,string|number|Date|boolean>>(`${this.url}/${id}`)
+  deleteRegistration(id: number): Observable<Record<string,string|number|boolean|undefined>>{
+    return this.http.delete<Record<string,string|number|boolean|undefined>>(`${this.url}/${id}`)
    }
 }

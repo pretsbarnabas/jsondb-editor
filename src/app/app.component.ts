@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DataService } from './services/data.service';
-import { TeamComponent } from "./team/team/team.component";
-import { isValidDate } from 'rxjs/internal/util/isDate';
+import { NewDataComponent } from "./newdata/newdata/newdata.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TeamComponent],
+  imports: [RouterOutlet, NewDataComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-  title = 'WRO';
+  title = 'jsondb-editor';
 
-  registrations: Record<string,string|number|Date|boolean>[] = []
+  data: Record<string,string|number|boolean|undefined>[] = []
   keys: string[] = []
-  newTeam: Record<string,string|number|Date|boolean> | undefined = undefined
+  newData: Record<string,string|number|boolean|undefined> | undefined = undefined
   update: any
   
   constructor(private dataService: DataService){
@@ -31,8 +30,8 @@ export class AppComponent implements OnInit{
     this.dataService.getRegistrations().subscribe(
       {
         next: response => {
-          this.registrations = response;
-          this.keys = Object.keys(this.registrations[0])
+          this.data = response;
+          this.keys = Object.keys(this.data[0])
         },
         error: error => console.log(error)
       }
@@ -41,38 +40,39 @@ export class AppComponent implements OnInit{
 
 
 
-  updateReg(registration: Record<string,string|number|Date|boolean>) {
+  updateReg(registration: Record<string,string|number|boolean|undefined>) {
     this.update = {...registration};
   }
 
-  deleteReg(registration: Record<string,string|number|Date|boolean>) {
+  deleteReg(registration: Record<string,string|number|boolean|undefined>) {
     this.dataService.deleteRegistration(registration["id"] as number).subscribe({
       next: response =>{
-        this.registrations = this.registrations.filter(r=>r["id"]!= response["id"])
-        this.newTeam = undefined
+        this.data = this.data.filter(r=>r["id"]!= response["id"])
+        this.newData = undefined
       },
       error: error => console.log(error)
     })
   }
 
   newReg(){
-    this.newTeam = {}
+    this.newData = {}
     this.keys.forEach(key=>{
-      if(this.isNumber(this.registrations[0][key])&&key!=="id") this.newTeam![key] = 0
-      else if (this.isValidDate(this.registrations[0][key])) this.newTeam![key] = new Date().toJSON().slice(0,10).replace(/-/g,'-')
-      else if(this.isBoolean(this.registrations[0][key])) this.newTeam![key] = false
-      else if (this.isString(this.registrations[0][key])&&key!=="id"){
-        this.newTeam![key] = ""
+      if(key==="id" || key==="_id") this.newData![key] = undefined
+      else if(this.isNumber(this.data[0][key])) this.newData![key] = 0
+      else if (this.isValidDate(this.data[0][key])) this.newData![key] = new Date().toJSON().slice(0,10).replace(/-/g,'-')
+      else if(this.isBoolean(this.data[0][key])) this.newData![key] = false
+      else if (this.isString(this.data[0][key])){
+        this.newData![key] = ""
       }
     })
   }
 
-  save(reg: Record<string,string|number|Date|boolean>){
-    if(this.newTeam != undefined){
+  save(reg: Record<string,string|number|boolean|undefined>){
+    if(this.newData != undefined){
       this.dataService.addRegistration(reg).subscribe({
         next: response =>{
-          this.registrations.push(response)
-          this.newTeam = undefined
+          this.data.push(response)
+          this.newData = undefined
         },
         error: error => console.log(error)
       })
@@ -80,8 +80,8 @@ export class AppComponent implements OnInit{
     else{
       this.dataService.updateRegistration(reg).subscribe({
         next: response =>{
-          const updatedIndex = this.registrations.findIndex(r=>r["id"]===response["id"])
-          this.registrations[updatedIndex] = response
+          const updatedIndex = this.data.findIndex(r=>r["id"]===response["id"])
+          this.data[updatedIndex] = response
           this.update = undefined
         },
         error: error => console.log(error)
@@ -90,7 +90,7 @@ export class AppComponent implements OnInit{
   }
 
   cancel(){
-    this.newTeam = undefined
+    this.newData = undefined
     this.update = undefined
     console.log("cancelled")
   }

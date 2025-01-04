@@ -1,5 +1,7 @@
 <div class="container">
   <h1 class="text-center mb-3">Manage JSON database</h1>
+  <p class="text-center mb-3">The used database can be freely changed out (supported datatypes: string, integer, boolean, date)</p>
+  <p class="text-center mb-3">The URL used in the data service must match the new database's URL</p>
   <table class="table table-hover table-bordered">
     <tbody>
       <tr class="text-center">
@@ -10,7 +12,7 @@
             <th>{{property}}</th>
           }
       </tr>
-      @for (reg of registrations; track $index) {
+      @for (reg of data; track $index) {
           <tr>
               <td>
                   <span (click)="updateReg(reg)" data-bs-toggle="modal" data-bs-target="#exampleModal">&#9998;</span>
@@ -24,4 +26,4 @@
     </tbody>
     </table>
 </div>
-<app-team [teamData]="newTeam === undefined ? this.update : newTeam" [keys]="keys" (saved)="save($event)" (cancelled)="cancel()"></app-team>
+<app-newdata [newData]="newData === undefined ? this.update : newData" [keys]="keys" (saved)="save($event)" (cancelled)="cancel()"></app-newdata>

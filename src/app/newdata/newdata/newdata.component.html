@@ -1,0 +1,41 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Adatok rögzítése</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cancel()"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                @for (property of keys; track $index) {
+                    <div class="mb-3">
+                    <label class="form-label">{{property}}: </label>
+                    @if(property === "id"){
+                        {{newData?.[property]}}
+                    }
+                    @else if (isBoolean(property)){
+                        <select class="form-select" [value]="newData?.[property]" (change)="handleValueChange(property,$event)">
+                            <option [value]="true">true</option>
+                            <option [value]="false">false</option>
+                        </select>
+                    }
+                    @else if (isNumber(property)) {
+                        <input type="number" class="form-control" [value]="newData?.[property]" (change)="handleValueChange(property,$event)">
+                    }
+                    @else if (isValidDate(newData?.[property])){
+                        <input type="date" class="form-control" [value]="newData?.[property]" (change)="handleValueChange(property,$event)">
+                    }
+                    @else if (isString(property)){
+                        <input type="text" class="form-control" [value]="newData?.[property]" (change)="handleValueChange(property,$event)">
+                    }
+                    </div>
+                }
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="cancel()">Mégsem</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="save()">Mentés</button>
+        </div>
+      </div>
+    </div>
+  </div>
