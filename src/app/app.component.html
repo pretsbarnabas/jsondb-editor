@@ -1,17 +1,14 @@
 <div class="container">
-  <h1 class="text-center mb-3">WRO csapat regisztráció</h1>
+  <h1 class="text-center mb-3">Manage JSON database</h1>
   <table class="table table-hover table-bordered">
     <tbody>
       <tr class="text-center">
           <th>
               <span data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="newReg()">&#10010;</span>
           </th>
-          <th>Csapatnév</th>
-          <th>Kategória</th>
-          <th>Csapattagok száma</th>
-          <th>Csapatvezető neve</th>
-          <th>Csap. vez. e-mail</th>
-          <th>Csap. vez. szüldátum</th>
+          @for (property of keys; track $index) {
+            <th>{{property}}</th>
+          }
       </tr>
       @for (reg of registrations; track $index) {
           <tr>
@@ -19,15 +16,12 @@
                   <span (click)="updateReg(reg)" data-bs-toggle="modal" data-bs-target="#exampleModal">&#9998;</span>
                   <span (click)="deleteReg(reg)">&#10008;</span>
                 </td>
-                <td>{{reg.teamName}}</td>
-                <td>{{reg.category}}</td>
-                <td>{{reg.memberCount}}</td>
-                <td>{{reg.teamLeader}}</td>
-                <td>{{reg.teamLeaderEmail}}</td>
-                <td>{{reg.teamLeaderBirthDate}}</td>
+                @for (property of keys; track $index) {
+                    <td>{{reg[property]}}</td>
+                }
             </tr>  
         }
     </tbody>
     </table>
 </div>
-<app-team [teamData]="newTeam === undefined ? this.update : newTeam" (saved)="save($event)" (cancelled)="cancel()"></app-team>
+<app-team [teamData]="newTeam === undefined ? this.update : newTeam" [keys]="keys" (saved)="save($event)" (cancelled)="cancel()"></app-team>

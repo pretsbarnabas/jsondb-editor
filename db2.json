@@ -1,0 +1,40 @@
+{
+  "pets": [
+    {
+      "id": "101",
+      "species": "Dog",
+      "breed": "Golden Retriever",
+      "age": 3,
+      "adoptionStatus": "Available",
+      "name": "Buddy",
+      "gender": "Male",
+      "adoptionFee": 150,
+      "shelterLocation": "Northside Shelter",
+      "dateArrived": "2023-08-15"
+    },
+    {
+      "id": "102",
+      "species": "Cat",
+      "breed": "Siamese",
+      "age": 2,
+      "adoptionStatus": "Pending",
+      "name": "Luna",
+      "gender": "Female",
+      "adoptionFee": 100,
+      "shelterLocation": "Eastside Shelter",
+      "dateArrived": "2023-09-05"
+    },
+    {
+      "id": "103",
+      "species": "Rabbit",
+      "breed": "Himalayan",
+      "age": 1,
+      "adoptionStatus": "Available",
+      "name": "Thumper",
+      "gender": "Male",
+      "adoptionFee": 50,
+      "shelterLocation": "Westside Shelter",
+      "dateArrived": "2023-07-20"
+    }
+  ]
+}

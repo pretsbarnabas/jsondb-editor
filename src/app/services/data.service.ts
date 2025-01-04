@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Registration } from '../../models/registration.model';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
@@ -14,19 +13,19 @@ export class DataService {
     
    }
 
-  getRegistrations(): Observable<Registration[]>{
-    return this.http.get<Registration[]>(this.url)
+  getRegistrations(): Observable<Record<string,string|number|Date|boolean>[]>{
+    return this.http.get<Record<string,string|number|Date|boolean>[]>(this.url)
    }
 
-  addRegistration(registration: Registration): Observable<Registration>{
-    return this.http.post<Registration>(this.url,registration)
+  addRegistration(registration: Record<string,string|number|Date|boolean>): Observable<Record<string,string|number|Date|boolean>>{
+    return this.http.post<Record<string,string|number|Date|boolean>>(this.url,registration)
    }
    
-  updateRegistration(registration: Registration): Observable<Registration>{
-    return this.http.patch<Registration>(`${this.url}/${registration.id}`,registration)
+  updateRegistration(registration: Record<string,string|number|Date|boolean>): Observable<Record<string,string|number|Date|boolean>>{
+    return this.http.patch<Record<string,string|number|Date|boolean>>(`${this.url}/${registration["id"]}`,registration)
    }
 
-  deleteRegistration(id: number): Observable<Registration>{
-    return this.http.delete<Registration>(`${this.url}/${id}`)
+  deleteRegistration(id: number): Observable<Record<string,string|number|Date|boolean>>{
+    return this.http.delete<Record<string,string|number|Date|boolean>>(`${this.url}/${id}`)
    }
 }
